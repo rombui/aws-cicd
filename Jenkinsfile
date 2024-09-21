@@ -7,9 +7,9 @@ pipeline {
                 sh 'echo build'
             }
         }
-        stage('test'){
+        stage('test1'){
             steps{
-                sh 'echo test'
+                sh 'echo test1'
             }
         }
     }
