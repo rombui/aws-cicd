@@ -4,6 +4,9 @@ pipeline {
     environment {
         BRANCH_NAME = 'main'
         GIT_URL = 'https://github.com/rombui/aws-cicd.git'
+        IMAGE_TAG = 'rombui/awscicd'
+        IMAGE_VERSION = ${BUILD_NUMBER}
+   
     }
 
     stages {
@@ -14,9 +17,8 @@ pipeline {
         }
         stage('docker build'){
             steps{
-                sh 'docker build -t awscicd .'
+                sh 'docker build -t "${IMAGE_TAG}:${IMAGE_VERSION}" .'
                 sh 'docker images'
-                sh ''
             }
         }
     }
